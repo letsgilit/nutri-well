@@ -45,13 +45,10 @@ class csvDBUpdaterTest {
 
         try (CSVReader reader = new CSVReader(new InputStreamReader(new FileInputStream(filePath), "CP949"))) {
             List<String[]> records = reader.readAll();
-//            System.out.println(records.size());
             List<Nutrient> nutrientList = saveNutrients(records.get(0));
-//            System.out.println(records.size());
             records.remove(0); // 헤더 삭제
 
             for (String[] record : records) {
-//                System.out.println(record.length);
                 saveParentCategory(record);
             }
             for (String[] record : records) {

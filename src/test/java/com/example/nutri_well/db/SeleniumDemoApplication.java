@@ -44,10 +44,7 @@ public class SeleniumDemoApplication {
                     Thread.sleep(800);
 
                     List<WebElement> images = driver.findElements(By.cssSelector("img"));
-
-                    int count = 0;
                     for (WebElement imageElement : images) {
-                        if (count >= 2) break; // 2개의 이미지만 저장
                         String imageUrl = imageElement.getAttribute("src");
 
                         try {
@@ -61,11 +58,9 @@ public class SeleniumDemoApplication {
                             } else if (imageUrl != null && imageUrl.startsWith("http")) {
                                 image = ImageIO.read(new URL(imageUrl));
                             }
-
                             if (image != null && image.getWidth() >= 200 && image.getHeight() >= 200) {
-                                File outputfile = new File("D:\\test\\category2\\" + record[1] + ".jpg");
+                                File outputfile = new File("D:\\test\\category2\\" + record[1] +".jpg");
                                 ImageIO.write(image, "jpg", outputfile);
-                                count++;
                                 System.out.println("적합한 이미지 URL: ");
                             } else {
                                 System.out.println("적합하지 않은 이미지 크기: " );

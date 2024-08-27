@@ -39,6 +39,6 @@ out/
 ### application-private.properties ###
 application.properties
 application-private.properties
-
+application.yml
 ## category img ##
 src/**/img/category/
